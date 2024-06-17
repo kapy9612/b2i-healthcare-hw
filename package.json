@@ -1,0 +1,49 @@
+{
+  "name": "b2i-healthcare-hw",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write .",
+    "prepare": "husky",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.45.1",
+    "@types/lodash": "^4.17.5",
+    "axios": "^1.7.2",
+    "classnames": "^2.5.1",
+    "dayjs": "^1.11.10",
+    "lodash": "^4.17.21",
+    "next": "^14.2.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "sharp": "^0.33.4",
+    "zustand": "^4.5.2"
+  },
+  "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.43.1",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^7.13.1",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8",
+    "eslint-config-next": "^14.2.4",
+    "eslint-config-prettier": "^9",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "postcss": "^8",
+    "prettier": "^3.3.2",
+    "tailwindcss": "^3.4.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
+  },
+  "engines":{
+    "node" : "20.x"
+  }
+}

@@ -1,0 +1,13 @@
+node_modules/
+.next/
+.cache
+package.json
+package-lock.json
+public
+.idea
+.vscode
+build
+coverage
+.swc
+*.js
+*.d.ts

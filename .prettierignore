@@ -1,0 +1,12 @@
+node_modules
+.next/
+.cache
+package.json
+yarn-lock.json
+public
+.idea
+.vscode
+build
+coverage
+.swc
+src/styles
