@@ -4,6 +4,8 @@ import { PropsWithChildren, useState } from 'react';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+import { SearchProvider } from '@providers/SearchContext/SearchContext.tsx';
+
 export function Providers({ children }: PropsWithChildren) {
   const [queryClient] = useState(
     () =>
@@ -17,5 +19,9 @@ export function Providers({ children }: PropsWithChildren) {
       })
   );
 
-  return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <SearchProvider>{children}</SearchProvider>
+    </QueryClientProvider>
+  );
 }

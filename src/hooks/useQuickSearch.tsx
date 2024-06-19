@@ -10,7 +10,7 @@ type Acceptability = {
   [key: string]: string;
 };
 
-type Pt = {
+export type PtItem = {
   id: string;
   term: string;
   concept: Element;
@@ -32,7 +32,7 @@ type QuickSearchItem = {
   activeMemberOf: string[];
   definitionStatus: Element;
   subclassDefinitionStatus: string;
-  pt: Pt;
+  pt: PtItem;
   ancestorIds: string[];
   parentIds: string[];
   statedAncestorIds: string[];
