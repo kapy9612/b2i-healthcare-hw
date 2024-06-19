@@ -13,9 +13,9 @@ const QuickSearch = () => {
   const { data } = useQuickSearch(searchString, limit);
 
   return (
-    <div className={'flex gap-2'}>
-      <div className={'flex flex-col max-w-lg w-full'}>
-        <div className={'flex w-full'}>
+    <div className={'flex gap-2 items-start'}>
+      <div className={'flex flex-col'}>
+        <div className={'flex w-full sm:w-96'}>
           <input
             ref={searchInput}
             type={'search'}
@@ -26,7 +26,7 @@ const QuickSearch = () => {
               }
             }}
             className={
-              'w-full rounded-l-lg p-2 border border-gray-700 box-border outline-none hover:border-blue-400 hover:z-10'
+              'min-w-40 w-full rounded-l-lg p-2 border border-gray-700 box-border outline-none hover:border-blue-400 hover:z-10'
             }
           />
           <button
@@ -40,7 +40,7 @@ const QuickSearch = () => {
             <Image src={searchIcon.src} alt={'search-icon'} width={20} height={20} />
           </button>
         </div>
-        <ul className={'w-96'}>
+        <ul className={'w-full sm:w-96'}>
           {data &&
             data.map(item => (
               <li key={item.pt.id} className={'line-clamp-1 p-1'}>
