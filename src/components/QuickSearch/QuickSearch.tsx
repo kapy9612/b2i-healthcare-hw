@@ -8,6 +8,8 @@ import { useSearchContext } from '@providers/SearchContext/SearchContext.tsx';
 
 import useQuickSearch from '@hooks/useQuickSearch.tsx';
 
+import highlightText from '@utils/highlightText.ts';
+
 import loadingIcon from '@public/loading.svg';
 import searchIcon from '@public/search.svg';
 
@@ -20,14 +22,6 @@ const QuickSearch = () => {
   const { data, isLoading, isError } = useQuickSearch(searchString, limit);
   const { setSelectedItem } = useSearchContext();
 
-  const highlightText = (text: string, highlight: string) => {
-    if (!highlight.trim()) {
-      return text;
-    }
-    const regex = new RegExp(`(${highlight})`, 'gi');
-    return text.replace(regex, '<strong>$1</strong>');
-  };
-
   useEffect(() => {
     if (searchString === '') {
       setOpen(false);
@@ -35,6 +29,8 @@ const QuickSearch = () => {
   }, [searchString]);
 
   useEffect(() => {
+    if (!open) return;
+
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setOpen(false);
@@ -46,7 +42,7 @@ const QuickSearch = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  }, [open]);
 
   return (
     <div className={'flex gap-2 items-start'}>
