@@ -74,13 +74,13 @@ const QuickSearch = () => {
             }}
             onClick={() => searchString && setOpen(true)}
             className={classNames(
-              'min-w-40 h-10 w-full p-2 border border-gray-700 box-border outline-none hover:border-blue-400 hover:z-10',
+              'min-w-40 h-10 w-full p-2 rounded-l-lg border border-gray-700 box-border outline-none hover:border-blue-400 hover:z-10',
               { '!rounded-b-none': open }
             )}
           />
           <button
             className={classNames(
-              'w-10 h-10 text-center ml-[-1px]  p-2 border border-gray-700 box-border bg-blue-500 hover:bg-blue-400 transition-background duration-300 active:bg-blue-200 z-1',
+              'w-10 h-10 text-center ml-[-1px] rounded-r-lg p-2 border border-gray-700 box-border bg-blue-500 hover:bg-blue-400 transition-colors duration-300 active:bg-blue-200 z-1',
               { '!rounded-b-none': open }
             )}
             onClick={() => {
@@ -101,7 +101,7 @@ const QuickSearch = () => {
         </div>
         <ul
           className={classNames(
-            'h-0 absolute top-10 w-full sm:w-96 bg-white border border-gray-700 box-border overflow-y-auto scrollbar-thin transition-height duration-200',
+            'h-0 absolute top-10 w-full sm:w-96 bg-white border border-gray-700 box-border overflow-y-auto scrollbar-thin',
             { '!max-h-48 !h-fit': open }
           )}
         >
