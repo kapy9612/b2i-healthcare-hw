@@ -85,7 +85,7 @@ const QuickSearch = () => {
         <ul
           className={classNames(
             'h-0 absolute top-10 w-full sm:w-96 bg-white border border-gray-700 box-border overflow-y-auto scrollbar-thin transition-height duration-200',
-            { '!h-48': open }
+            { '!max-h-48 !h-fit': open }
           )}
         >
           {data?.length === 0 && <p className={'text-center mt-20'}>No data.</p>}
