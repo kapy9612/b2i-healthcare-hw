@@ -127,6 +127,7 @@ const QuickSearch = () => {
         onChange={e => setLimit(Number(e.target.value))}
         type={'number'}
         placeholder={'N'}
+        min="1"
         className={'w-16 rounded-lg p-2 focus:outline-none border border-gray-700 h-fit'}
       />
     </div>
