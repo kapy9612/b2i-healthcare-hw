@@ -17,6 +17,7 @@ const QuickSearch = () => {
   const [open, setOpen] = React.useState(false);
   const [searchString, setSearchString] = React.useState('');
   const [limit, setLimit] = React.useState(10);
+  const [errorText, setErrorText] = React.useState('');
   const searchInput = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { data, isLoading, isError } = useQuickSearch(searchString, limit);
@@ -25,6 +26,7 @@ const QuickSearch = () => {
   useEffect(() => {
     if (searchString === '') {
       setOpen(false);
+      setErrorText('');
     }
   }, [searchString]);
 
@@ -44,6 +46,16 @@ const QuickSearch = () => {
     };
   }, [open]);
 
+  const handleSearch = (value: string) => {
+    if (value.length < 2) {
+      setErrorText('Search term must be at least 2 characters long.');
+      setOpen(false);
+    } else {
+      setErrorText('');
+      setOpen(true);
+    }
+  };
+
   return (
     <div className={'flex gap-2 items-start'}>
       <div className={'flex flex-col relative'} ref={dropdownRef}>
@@ -51,11 +63,13 @@ const QuickSearch = () => {
           <input
             ref={searchInput}
             type={'search'}
+            minLength={2}
             placeholder={'Search'}
             onKeyDown={e => {
               if (e.key === 'Enter' && searchInput.current) {
-                setSearchString(searchInput.current.value);
-                setOpen(true);
+                const value = searchInput.current.value;
+                setSearchString(value);
+                handleSearch(value);
               }
             }}
             onClick={() => searchString && setOpen(true)}
@@ -70,8 +84,11 @@ const QuickSearch = () => {
               { '!rounded-b-none': open }
             )}
             onClick={() => {
-              if (searchInput.current) setSearchString(searchInput.current.value);
-              setOpen(true);
+              if (searchInput.current) {
+                const value = searchInput.current.value;
+                setSearchString(value);
+                handleSearch(value);
+              }
             }}
             disabled={isLoading}
           >
@@ -88,7 +105,7 @@ const QuickSearch = () => {
             { '!max-h-48 !h-fit': open }
           )}
         >
-          {data?.length === 0 && <p className={'text-center mt-20'}>No data.</p>}
+          {data?.length === 0 && <p className={'text-center p-2'}>No data.</p>}
           {data &&
             !isLoading &&
             !isError &&
@@ -103,6 +120,7 @@ const QuickSearch = () => {
             ))}
         </ul>
         {isError && <p className={'text-red-600'}>An error occurred.</p>}
+        {errorText && <p className={'text-red-600'}>{errorText}</p>}
       </div>
       <input
         value={limit}

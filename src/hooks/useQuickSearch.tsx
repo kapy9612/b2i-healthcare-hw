@@ -55,7 +55,7 @@ const useQuickSearch = (searchString: string, limit: number = 10) => {
         },
       }),
     select: res => res?.data.items,
-    enabled: searchString !== '',
+    enabled: searchString !== '' && searchString.length > 1,
   });
 };
 

@@ -22,5 +22,5 @@ const defaultConfig: AxiosRequestConfig = {
 };
 
 export const getRequest = async <R>({ url, config }: RequestsType): Promise<AxiosResponse<ResponseType<R>>> => {
-  return await axios.get(url, { ...config, ...defaultConfig });
+  return await axios.get(url, { ...defaultConfig, ...config });
 };
