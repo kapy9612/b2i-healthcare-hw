@@ -113,7 +113,10 @@ const QuickSearch = () => {
               <li
                 key={item.pt.id}
                 className={'truncate p-[2px] leading-normal hover:bg-blue-200 cursor-pointer'}
-                onClick={() => setSelectedItem(item.pt)}
+                onClick={() => {
+                  setSelectedItem(item.pt);
+                  setOpen(false);
+                }}
               >
                 <span dangerouslySetInnerHTML={{ __html: highlightText(item.pt.term, searchString) }} />
               </li>
