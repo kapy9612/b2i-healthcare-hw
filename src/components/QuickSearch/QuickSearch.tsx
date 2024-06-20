@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import Image from 'next/image';
 
@@ -14,10 +14,10 @@ import loadingIcon from '@public/loading.svg';
 import searchIcon from '@public/search.svg';
 
 const QuickSearch = () => {
-  const [open, setOpen] = React.useState(false);
-  const [searchString, setSearchString] = React.useState('');
-  const [limit, setLimit] = React.useState(10);
-  const [errorText, setErrorText] = React.useState('');
+  const [open, setOpen] = useState(false);
+  const [searchString, setSearchString] = useState('');
+  const [limit, setLimit] = useState(10);
+  const [errorText, setErrorText] = useState('');
   const searchInput = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { data, isLoading, isError } = useQuickSearch(searchString, limit);
