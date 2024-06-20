@@ -1,10 +1,10 @@
-import React, { Dispatch, PropsWithChildren, createContext, useContext, useState } from 'react';
+import { Dispatch, PropsWithChildren, SetStateAction, createContext, useContext, useState } from 'react';
 
 import { PtItem } from '@hooks/useQuickSearch.tsx';
 
 type SearchContextState = {
   selectedItem: PtItem | null;
-  setSelectedItem: Dispatch<React.SetStateAction<PtItem | null>>;
+  setSelectedItem: Dispatch<SetStateAction<PtItem | null>>;
 };
 
 const SearchContext = createContext<SearchContextState | undefined>(undefined);
