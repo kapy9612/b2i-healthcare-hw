@@ -24,7 +24,7 @@ const QuickSearch = () => {
   const { setSelectedItem } = useSearchContext();
 
   useEffect(() => {
-    if (searchString === '') {
+    if (searchString === '' && searchString.length < 2) {
       setOpen(false);
       setErrorText('');
     }
